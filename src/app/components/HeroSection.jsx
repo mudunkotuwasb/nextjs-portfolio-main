@@ -1,11 +1,27 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 const HeroSection = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const [isFlipping, setIsFlipping] = useState(false);
+  const images = ["/images/hero-image.png", "/images/real-photo.png"]; // Add your avatar and real photo
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsFlipping(true); // Start the flip
+      setTimeout(() => {
+        setCurrentImage((prevImage) => (prevImage === 0 ? 1 : 0)); // Switch image halfway through the flip
+        setIsFlipping(false); // End the flip after the rotation completes
+      }, 500); // Flip duration (500ms corresponds to half of the 1 second animation)
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval); // Cleanup on component unmount
+  }, []);
+
   return (
     <section className="lg:py-16">
       <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -19,27 +35,27 @@ const HeroSection = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
               Hello, I&apos;m{" "}
             </span>
-            <br></br>
-            <span className="text-4xl sm:text-5xl lg:text-7xl"> {/* Adjust font size for roles */}
-    <TypeAnimation
-      sequence={[
-        "Bhagya",
-        1000,
-        "Web Developer",
-        1000,
-        "Mobile Developer",
-        1000,
-        "UI/UX Designer",
-        1000,
-      ]}
-      wrapper="span"
-      speed={50}
-      repeat={Infinity}
-    />
-  </span>
+            <br />
+            <span className="text-4xl sm:text-5xl lg:text-7xl">
+              <TypeAnimation
+                sequence={[
+                  "Bhagya",
+                  1000,
+                  "Web Developer",
+                  1000,
+                  "Mobile Developer",
+                  1000,
+                  "UI/UX Designer",
+                  1000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+              />
+            </span>
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-          I'm a web and mobile developer who enjoys creating user-friendly designs and practical digital solutions.
+            I'm a web and mobile developer who enjoys creating user-friendly designs and practical digital solutions.
           </p>
           <div>
             <Link
@@ -59,18 +75,17 @@ const HeroSection = () => {
           </div>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
           className="col-span-4 place-self-center mt-4 lg:mt-0"
+          animate={{ rotateY: isFlipping ? 180 : 0 }} // Animate the Y rotation
+          transition={{ duration: 1, ease: "easeInOut" }} // Smooth rotation over 1 second
         >
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative ">
+          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] relative overflow-hidden">
             <Image
-              src="/images/hero-image.png"
-              alt="hero image"
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              width={300}
-              height={300}
+              src={images[currentImage]}
+              alt="Rotating image"
+              className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover"
+              width={350}
+              height={350}
             />
           </div>
         </motion.div>

@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
-import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
 const projectsData = [
@@ -81,7 +80,7 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects">
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
+      <h2 className="text-center text-4xl font-bold text-white mt-12 mb-8 md:mb-12">
         My Projects
       </h2>
       
