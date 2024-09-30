@@ -32,7 +32,7 @@ const HeroSection = () => {
           className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
         >
           <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-8xl lg:leading-normal font-extrabold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-pink-500">
               Hello, I&apos;m{" "}
             </span>
             <br />
@@ -60,13 +60,13 @@ const HeroSection = () => {
           <div>
             <Link
               href="/#contact"
-              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
+              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-900 to-pink-500 hover:bg-slate-800 text-white"
             >
               Hire Me
             </Link>
             <Link
               href="/"
-              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
+              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-900 to-pink-500 hover:bg-slate-800 text-white mt-3"
             >
               <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
                 Download CV
@@ -79,7 +79,7 @@ const HeroSection = () => {
           animate={{ rotateY: isFlipping ? 180 : 0 }} // Animate the Y rotation
           transition={{ duration: 1, ease: "easeInOut" }} // Smooth rotation over 1 second
         >
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] relative overflow-hidden">
+          <div className=" bg-[#18181800] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] relative overflow-hidden">
             <Image
               src={images[currentImage]}
               alt="Rotating image"
