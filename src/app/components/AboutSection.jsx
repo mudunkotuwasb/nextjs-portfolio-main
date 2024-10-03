@@ -99,6 +99,7 @@ const AboutSection = () => {
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-2 xl:gap-16 sm:py-16 xl:px-2">
       <Image
   src="/images/about-image.png"
+  alt="My Image"
   width={500}
   height={500}
   className="col-span-1 self-start mt-[80px]" // Moves the image upwards
