@@ -55,7 +55,8 @@ const HeroSection = () => {
             </span>
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            I'm a web and mobile developer who enjoys creating user-friendly designs and practical digital solutions.
+            I'm a web and mobile developer who enjoys creating user-friendly
+            designs and practical digital solutions.
           </p>
           <div>
             <Link
@@ -64,14 +65,9 @@ const HeroSection = () => {
             >
               Hire Me
             </Link>
-            <Link
-              href="/"
-              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-900 to-pink-500 hover:bg-slate-800 text-white mt-3"
-            >
-              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
-                Download CV
-              </span>
-            </Link>
+            
+
+
           </div>
         </motion.div>
         <motion.div
